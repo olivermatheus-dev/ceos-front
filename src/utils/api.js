@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const apiURLs = {
 //   development: "http://localhost:1337/api",
-//   production: "https://alestauranteapi.onrender.com/api",
+//   production: "",
 // };
 
 //apiURL[process.env.NODE_ENV]
@@ -13,7 +13,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   config.headers = {
-    Authorization: `Bearer a6537f7f8e8ff3ed5a7ef039f3cd7b1fe8ac0ab6d73bd435d95d7536509956586e04f458d575d865dfa7d5d915f9195bcf26910bbd845fb812ecb9128fcaad858f921d0ae6cb8cd1cdddc9733d6971a9be5c895f9160d801a0a30d65b07ec88f7907b78a141bd52423e1b580f93bc9d08f376476ceaa99c91de810a13780a4c6`,
+    Authorization: `Bearer 5ea9718ce2fc4d74d4a12fd6870ee6c8b92b7907d594d19df822c2da16137f4cf00c186cd3e413c0fd2f366576351e6699463574ffbed47b18cf309bd9b5fb6055aaa547eaafd603ff2c22dca9db49e6d8679ebf9b8ec6c9e57ed3c9535cf0acc09e7ca7f4e54def66eca7e735325790412fe66348efcc5dab86c4f6631ccfe3`,
   };
 
   return config;

@@ -42,9 +42,9 @@ export function Form() {
           id="content"
           value={form.content}
           onChange={handleChange}
-          name="text"
+          name="content"
         />
-        <label htmlFor="author">Image:</label>
+        <label htmlFor="image">Image:</label>
         <input
           type="text"
           id="image"
@@ -52,7 +52,7 @@ export function Form() {
           onChange={handleChange}
           name="image"
         />
-        <label htmlFor="author">Category:</label>
+        <label htmlFor="category">Category:</label>
         <input
           type="text"
           id="category"

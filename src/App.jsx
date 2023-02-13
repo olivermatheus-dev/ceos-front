@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { CreateTab } from "./pages/Createtab";
 
 import { Home } from "./pages/Home";
 
@@ -7,7 +8,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <h1></h1>
+        <Route path="/create" element={<CreateTab />} />
       </Routes>
     </div>
   );

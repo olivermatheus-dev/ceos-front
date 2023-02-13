@@ -7,6 +7,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <h1></h1>
       </Routes>
     </div>
   );

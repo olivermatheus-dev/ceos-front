@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../utils/api";
 
 export function Form() {
   const [form, setForm] = useState({
@@ -16,13 +17,12 @@ export function Form() {
     setForm({ ...form, [target.name]: target.value });
   }
 
-  async function handleSubmit(event) {
+  async function handleSubmit(e) {
     try {
-      event.preventDefault();
-
+      e.preventDefault();
       const infosForAPI = { data: { ...form } };
 
-      //await api.post("/tabs", infosForAPI);
+      await api.post("/tabs", infosForAPI);
 
       navigate("/");
     } catch (err) {

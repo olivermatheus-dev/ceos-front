@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // const apiURLs = {
-//   development: "http://localhost:1337/api",
-//   production: "",
+//   development: "http://onrender:1337/api",
+//   production: "http://onrender:1337/api",
 // };
 
 //apiURL[process.env.NODE_ENV]

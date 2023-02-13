@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export function Form() {
   const [form, setForm] = useState({
     author: "",
@@ -7,15 +10,26 @@ export function Form() {
     category: "",
   });
 
+  const navigate = useNavigate();
+
   function handleChange({ target }) {
     setForm({ ...form, [target.name]: target.value });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    //async;
-    setForm({ author: "", title: "", content: "", image: "", category: "" });
+  async function handleSubmit(event) {
+    try {
+      event.preventDefault();
+
+      const infosForAPI = { data: { ...form } };
+
+      //await api.post("/tabs", infosForAPI);
+
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   }
+
   return (
     <>
       <h1>Form</h1>

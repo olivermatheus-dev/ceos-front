@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ButtonFull } from "../../components/ButtonFull";
 import { api } from "../../utils/api";
 
 export function TabDetails() {
@@ -49,12 +50,7 @@ export function TabDetails() {
               </h1>
             </header>
             <p className="lead">{tabs.content}</p>
-            <Link
-              className="inline-block rounded border border-sky-400 bg-sky-400 px-10 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-sky-400 focus:outline-none focus:ring active:text-sky-400"
-              to="/"
-            >
-              <button>Contribuir</button>
-            </Link>
+            <ButtonFull to="/" text="contribua"/>
           </article>
         </div>
       </main>

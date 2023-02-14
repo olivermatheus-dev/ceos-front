@@ -4,11 +4,6 @@ export function TabBox({ tab }) {
   return (
     <>
       <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg w-96 h-28">
-        {/* <img
-          alt="Office"
-          src={tab.image}
-          className="h-56 w-full object-cover"
-        /> */}
         <div className="bg-white p-4 sm:p-6">
           <time dateTime="2022-10-10" className="block text-xs text-gray-500">
             Criado: {tab.createdAt.slice(0, 10)}

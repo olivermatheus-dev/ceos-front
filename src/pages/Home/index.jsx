@@ -20,14 +20,21 @@ export function Home() {
   }, []);
 
   return (
-    <div className="w-auto flex flex-col gap-3 items-center content-center">
-      {tabs.map((currentTabs) => {
-        return (
-          <Link to={`/tabdetails/${currentTabs.id}`} className="w-2/5 ">
-            <TabBox tab={currentTabs.attributes} key={currentTabs.id} />
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <div className="h-20"></div>
+      <div className="w-auto flex flex-col gap-3 items-center content-center">
+        {tabs.map((currentTabs) => {
+          return (
+            <Link
+              to={`/tabdetails/${currentTabs.id}`}
+              className="w-auto "
+              key={currentTabs.id}
+            >
+              <TabBox tab={currentTabs.attributes} />
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }

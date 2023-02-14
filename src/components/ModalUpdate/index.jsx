@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../utils/api";
 
 export function ModalUpdate({
@@ -12,6 +12,7 @@ export function ModalUpdate({
   // Configurações copiadas e coladas de Updatetap
 
   const params = useParams();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState(formsInfo);
 
@@ -38,7 +39,7 @@ export function ModalUpdate({
     try {
       e.preventDefault();
       await api.delete(`/tabs/${params.tabId}`);
-      setIsOpen(!isOpen);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -120,9 +121,7 @@ export function ModalUpdate({
                 {console.log(form)}
                 <button
                   className="bg-red-500 px-4 py-2 rounded-md text-md text-white"
-                  onClick={() => {
-                    setIsOpen(handleDelete);
-                  }}
+                  onClick={handleDelete}
                 >
                   Deletar
                 </button>

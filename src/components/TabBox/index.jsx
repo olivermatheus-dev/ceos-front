@@ -6,7 +6,7 @@ export function TabBox({ tab }) {
           <div className="block shrink-0">
             <img
               alt="Imagem miniatura"
-              src={tab.image}
+              src={`/src/assets/${tab.category}/${tab.category}.svg`}
               className="h-14 w-14 rounded-lg object-cover"
             />
           </div>

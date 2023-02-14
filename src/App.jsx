@@ -5,11 +5,10 @@ import { TabDetails } from "./pages/TabDetails";
 import { Navbar } from "./components/Navbar";
 import { UpdateTab } from "./pages/Updatetab";
 
-
 function App() {
   return (
     <div>
-  <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<CreateTab />} />

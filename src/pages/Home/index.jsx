@@ -20,10 +20,10 @@ export function Home() {
   }, []);
 
   return (
-    <div className="w-2/3 flex ">
+    <div className="w-auto flex flex-col gap-3 items-center content-center">
       {tabs.map((currentTabs) => {
         return (
-          <Link to={`/tabdetails/${currentTabs.id}`} className="w-2/5">
+          <Link to={`/tabdetails/${currentTabs.id}`} className="w-2/5 ">
             <TabBox tab={currentTabs.attributes} key={currentTabs.id} />
           </Link>
         );

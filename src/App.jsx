@@ -3,15 +3,19 @@ import { CreateTab } from "./pages/Createtab";
 
 import { Home } from "./pages/Home";
 import { TabDetails } from "./pages/TabDetails";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/create" element={<CreateTab />} />
-        <Route path="/tabdetails/:tabId" element={<TabDetails />} />
-      </Routes>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<CreateTab />} />
+          <Route path="/tabdetails/:tabId" element={<TabDetails />} />
+        </Routes>
+      </>
     </div>
   );
 }

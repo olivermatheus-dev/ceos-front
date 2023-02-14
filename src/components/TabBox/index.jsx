@@ -6,15 +6,17 @@ export function TabBox({ tab }) {
           <div className="block shrink-0">
             <img
               alt="Imagem miniatura"
-              src={tab.image}
+              src={`/src/assets/${tab.category}/${tab.category}.svg`}
               className="h-14 w-14 rounded-lg object-cover"
             />
           </div>
 
           <div className="ml-4">
-            <h3 className="font-medium sm:text-lg w-128">{tab.title}</h3>
+            <h3 className="font-medium  sm:text-lg w-60 sm:w-128">
+              {tab.title}
+            </h3>
 
-            <p className="text-sm text-gray-700 line-clamp-2 w-128">
+            <p className="text-sm text-gray-700 line-clamp-2 w-56 sm:w-128">
               {tab.content}
             </p>
 

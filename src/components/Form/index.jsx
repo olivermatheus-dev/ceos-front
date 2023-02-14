@@ -32,7 +32,6 @@ export function Form() {
 
   return (
     <>
-      <h1>Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="author">Author:</label>
         <input

@@ -18,7 +18,7 @@ export function Home() {
     }
     fetchTabs();
   }, []);
-
+  console.log(tabs);
   return (
     <>
       <div className="h-20"></div>

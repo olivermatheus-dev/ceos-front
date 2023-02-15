@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { ButtonFull } from "../ButtonFull";
+import { ModalCreate } from "../ModalCreate";
 
 export function Navbar() {
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [reload, setReload] = useState(false);
+
   return (
     <>
       <header
@@ -37,6 +42,15 @@ export function Navbar() {
 
             <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
               <ButtonFull to="/create" text="create tab" />
+              <ButtonFull to="/" text="teste modal" />
+              {/* <ModalCreate
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              
+              setReload={setReload}
+              setIsLoading={setIsLoading}
+              isLoading={isLoading}
+            /> */}
             </div>
 
             <div className="lg:hidden">

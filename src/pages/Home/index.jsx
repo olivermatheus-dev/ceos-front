@@ -12,7 +12,8 @@ export function Home({ reload, isLoading, setIsLoading }) {
         const response = await api.get("/tabs");
 
         setTabs(response.data.data);
-        setIsLoading(!isLoading);
+        // setIsLoading(true);
+        !isLoading && setIsLoading(!isLoading);
       } catch (err) {
         console.log(err);
       }

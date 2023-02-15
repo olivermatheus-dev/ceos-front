@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ButtonFull } from "../../components/ButtonFull";
+
 import { ModalUpdate } from "../../components/ModalUpdate";
 import { api } from "../../utils/api";
-import javascript from "../../assets/javascript/javascript.jpg";
 
 export function TabDetails() {
-  console.log(javascript);
   const params = useParams();
   const [tabs, setTabs] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -89,7 +87,7 @@ export function TabDetails() {
           <div role="status">
             <svg
               aria-hidden="true"
-              class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-sky-600"
+              className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-sky-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +101,7 @@ export function TabDetails() {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       )}

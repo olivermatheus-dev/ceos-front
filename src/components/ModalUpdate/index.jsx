@@ -111,7 +111,7 @@ export function ModalUpdate({
                     rows="4"
                   />
                 </div>
-                <div className="ml-1 text-left">
+                {/* <div className="ml-1 text-left">
                   <label
                     htmlFor="image"
                     className="ml-1 text-left text-xs font-medium text-gray-700"
@@ -127,7 +127,7 @@ export function ModalUpdate({
                     placeholder="Link da imagem"
                     className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                   />
-                </div>
+                </div> */}
                 <div className="ml-1 text-left">
                   <label
                     htmlFor="category"
@@ -135,15 +135,7 @@ export function ModalUpdate({
                   >
                     Category:
                   </label>
-                  {/* <input
-                    type="text"
-                    id="category"
-                    value={form.category}
-                    onChange={handleChange}
-                    name="category"
-                    placeholder="Selecione uma categoria"
-                    className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                  /> */}
+
                   <select
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="category"

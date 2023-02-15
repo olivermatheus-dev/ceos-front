@@ -1,11 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ButtonFull } from "../ButtonFull";
+
 import { ModalCreate } from "../ModalCreate";
 
-export function Navbar() {
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [reload, setReload] = useState(false);
+export function Navbar({ setReload, setIsLoading }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -41,16 +40,20 @@ export function Navbar() {
             </nav>
 
             <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-              <ButtonFull to="/create" text="create tab" />
-              <ButtonFull to="/" text="teste modal" />
-              {/* <ModalCreate
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-              
-              setReload={setReload}
-              setIsLoading={setIsLoading}
-              isLoading={isLoading}
-            /> */}
+              <button
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+                className="mt-6 inline-block rounded border border-sky-400 bg-sky-400 px-10 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-sky-400 focus:outline-none focus:ring active:text-sky-400"
+              >
+                Criar
+              </button>
+              <ModalCreate
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                setReload={setReload}
+                setIsLoading={setIsLoading}
+              />
             </div>
 
             <div className="lg:hidden">

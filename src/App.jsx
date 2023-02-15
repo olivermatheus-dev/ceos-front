@@ -7,13 +7,23 @@ import { UpdateTab } from "./pages/Updatetab";
 import { useState } from "react";
 
 function App() {
-  //useContext
+  //useContext //Portal
   const [reload, setReload] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div>
-      <Navbar setReload={setReload} />
+      <Navbar setReload={setReload} setIsLoading={setIsLoading} />
       <Routes>
-        <Route path="/" element={<Home reload={reload} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              reload={reload}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
         <Route path="/create" element={<CreateTab />} />
         <Route path="/tabdetails/:tabId" element={<TabDetails />} />
         <Route path="/updatetab/:tabId" element={<UpdateTab />} />

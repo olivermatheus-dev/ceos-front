@@ -31,15 +31,14 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
       setReload((reload) => {
         return !reload;
       });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  async function handleDelete(e) {
-    try {
-      e.preventDefault();
-      await api.delete(`/tabs/${params.tabId}`);
       navigate("/");
+      setForm({
+        author: "",
+        title: "",
+        content: "",
+        image: "",
+        category: "",
+      });
     } catch (err) {
       console.log(err);
     }
@@ -49,10 +48,10 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
     <>
       {isOpen && (
         <>
-          <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+          <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 h-screen">
             <div className="bg-white px-4 py-14 rounded-md text-center">
               <h1 className="text-xl mb-4 font-bold text-slate-500">
-                Tab Edit
+                Crie sua tab!
               </h1>
               <form
                 onSubmit={handleSubmit}
@@ -134,15 +133,7 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                   >
                     Category:
                   </label>
-                  {/* <input
-                    type="text"
-                    id="category"
-                    value={form.category}
-                    onChange={handleChange}
-                    name="category"
-                    placeholder="Selecione uma categoria"
-                    className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                  /> */}
+
                   <select
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="category"
@@ -165,14 +156,8 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                     onClick={() => {
                       return handleSubmit;
                     }}
-                    value="Atualizar"
+                    value="Criar"
                   />
-                  <button
-                    className="w-36 cursor-pointer inline-block rounded border border-red-500 bg-red-500 px-10 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-red-500 focus:outline-none focus:ring active:text-red-400"
-                    onClick={handleDelete}
-                  >
-                    Deletar
-                  </button>
                 </div>
               </form>
 

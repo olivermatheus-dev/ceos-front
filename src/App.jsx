@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { UpdateTab } from "./pages/Updatetab";
 import { useState } from "react";
 import { TopTabs } from "./pages/TopTabs";
+import { Footer } from "./components/Footer";
 
 function App() {
   //useContext //Portal
@@ -39,6 +40,7 @@ function App() {
         <Route path="/tabdetails/:tabId" element={<TabDetails />} />
         <Route path="/updatetab/:tabId" element={<UpdateTab />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

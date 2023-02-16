@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ModalCreate } from "../ModalCreate";
-import logoHome from "../../../public/logohome.svg";
+import logoHome from "../../assets/logo/logohome.svg";
 
 export function Navbar({ setReload, setIsLoading }) {
   const [isOpen, setIsOpen] = useState(false);

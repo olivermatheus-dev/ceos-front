@@ -36,7 +36,7 @@ Selecionando a tab criada temos um botão de curtida e ao final do conteúdo tem
 
 
 ## Link do deploy e apresentação
-[Ceos](https://ceostab.netlify.app/i)
+[Ceos](https://ceostab.netlify.app/)
 
 
 [Apresentação](https://docs.google.com/presentation/d/1C9CTV23978u2TRAckSKa9F0SR5VrpoKOpCM-i5UEBdw/edit?usp=sharing)

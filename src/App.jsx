@@ -5,6 +5,7 @@ import { TabDetails } from "./pages/TabDetails";
 import { Navbar } from "./components/Navbar";
 import { UpdateTab } from "./pages/Updatetab";
 import { useState } from "react";
+import { TopTabs } from "./pages/TopTabs";
 
 function App() {
   //useContext //Portal
@@ -13,6 +14,7 @@ function App() {
   return (
     <div>
       <Navbar setReload={setReload} setIsLoading={setIsLoading} />
+
       <Routes>
         <Route
           path="/"
@@ -24,7 +26,16 @@ function App() {
             />
           }
         />
-        <Route path="/create" element={<CreateTab />} />
+        <Route
+          path="/toptabs"
+          element={
+            <TopTabs
+              reload={reload}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
         <Route path="/tabdetails/:tabId" element={<TabDetails />} />
         <Route path="/updatetab/:tabId" element={<UpdateTab />} />
       </Routes>

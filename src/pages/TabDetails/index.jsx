@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { LikeButton } from "../../components/LikeButton";
 
 import { ModalUpdate } from "../../components/ModalUpdate";
 import { api } from "../../utils/api";
@@ -53,6 +54,11 @@ export function TabDetails() {
                             {tabs.createdAt}
                           </time>
                         </p>
+                        <LikeButton
+                          likesCounter={tabs.likesCounter}
+                          setTabs={setTabs}
+                          tabs={tabs}
+                        />
                       </div>
                     </div>
                   </address>
@@ -60,7 +66,10 @@ export function TabDetails() {
                     {tabs.title}
                   </h1>
                 </header>
-                <p className="lead">{tabs.content}</p>
+                <p
+                  className="tabs-content"
+                  dangerouslySetInnerHTML={{ __html: tabs.content }}
+                />
                 <button
                   onClick={() => {
                     setIsOpen(!isOpen);
@@ -105,6 +114,16 @@ export function TabDetails() {
           </div>
         </div>
       )}
+      <style>
+        {`
+          .tabs-content h1 {
+            font-size: 2em;
+          }
+          .tabs-content h2 {
+            font-size: 1.5em;
+          }
+        `}
+      </style>
     </>
   );
 }

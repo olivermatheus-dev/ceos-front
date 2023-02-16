@@ -8,7 +8,7 @@ Ceos é o projeto que foi criado por Danilo Shinzato e Matheus Oliveira para ate
 
 ## Bibliotecas usadas
 - Tailwind
-- 
+
 
 ## Como usar no VSCode
 

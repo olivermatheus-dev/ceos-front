@@ -1,7 +1,31 @@
+import javaScriptSvg from "../../assets/javascript/javascript.svg";
+import cssSvg from "../../assets/css/css.svg";
+import nextjsSvg from "../../assets/nextjs/nextjs.svg";
+import reactSvg from "../../assets/react/react.svg";
+
+import { useEffect, useState } from "react";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export function TabBox({ tab }) {
+  const [imgSrc, setImgSrc] = useState();
+
+  useEffect(() => {
+    if (tab.category === "javascript") {
+      setImgSrc(javaScriptSvg);
+    }
+    if (tab.category === "css") {
+      setImgSrc(cssSvg);
+    }
+    if (tab.category === "nextjs") {
+      setImgSrc(nextjsSvg);
+    }
+    if (tab.category === "react") {
+      setImgSrc(reactSvg);
+    }
+  }, []);
+
   library.add(faThumbsUp);
   return (
     <>
@@ -10,7 +34,7 @@ export function TabBox({ tab }) {
           <div className="block shrink-0">
             <img
               alt="Imagem miniatura"
-              src={`/src/assets/${tab.category}/${tab.category}.svg`}
+              src={imgSrc}
               className="h-14 w-14 rounded-lg object-cover"
             />
           </div>

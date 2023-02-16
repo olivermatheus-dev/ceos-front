@@ -1,3 +1,8 @@
+import javaScriptJpg from "../../assets/javascript/javascript.jpg";
+// import cssJpg from "../../assets/css/css.jpg";
+import nextjsJpg from "../../assets/nextjs/nextjs.jpg";
+import reactJpg from "../../assets/react/react.jpg";
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { LikeButton } from "../../components/LikeButton";
@@ -11,13 +16,25 @@ export function TabDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [reload, setReload] = useState(false);
+  const [imgSrc, setImgSrc] = useState();
 
   useEffect(() => {
     async function fetchTabs() {
       try {
         const response = await api.get(`/tabs/${params.tabId}`);
         setTabs(response.data.data.attributes);
+        const category = response.data.data.attributes.category;
         setIsLoading(!isLoading);
+
+        if (category === "javascript") {
+          setImgSrc(javaScriptJpg);
+        }
+        if (category === "nextjs") {
+          setImgSrc(nextjsJpg);
+        }
+        if (category === "react") {
+          setImgSrc(reactJpg);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -34,8 +51,7 @@ export function TabDetails() {
             <div className="flex justify-between px-4 mx-auto max-w-screen-md">
               <article className="mx-auto w-full">
                 <img
-                  // src={tabs.image}
-                  src={`/src/assets/${tabs.category}/${tabs.category}.jpg`}
+                  src={imgSrc}
                   alt={`Imagem do cabeçalho do post sobre ${tabs.title}`}
                   className="h-48 w-full object-cover "
                 />

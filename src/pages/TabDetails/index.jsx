@@ -66,7 +66,10 @@ export function TabDetails() {
                     {tabs.title}
                   </h1>
                 </header>
-                <p className="lead">{tabs.content}</p>
+                <p
+                  className="tabs-content"
+                  dangerouslySetInnerHTML={{ __html: tabs.content }}
+                />
                 <button
                   onClick={() => {
                     setIsOpen(!isOpen);
@@ -111,6 +114,16 @@ export function TabDetails() {
           </div>
         </div>
       )}
+      <style>
+        {`
+          .tabs-content h1 {
+            font-size: 2em;
+          }
+          .tabs-content h2 {
+            font-size: 1.5em;
+          }
+        `}
+      </style>
     </>
   );
 }

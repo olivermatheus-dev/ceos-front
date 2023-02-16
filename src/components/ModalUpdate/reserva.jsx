@@ -2,49 +2,29 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../utils/api";
 
-import "react-quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
+export function ModalUpdate({
+  isOpen,
+  setIsOpen,
+  formsInfo,
+  setReload,
+  setIsLoading,
+}) {
+  // Configurações copiadas e coladas de Updatetap
 
-function TextEditor({ setValue, value }) {
-  return (
-    <div className="mb-10">
-      <ReactQuill
-        theme="snow"
-        value={value}
-        onChange={setValue}
-        style={{ height: "200px" }}
-      />
-    </div>
-  );
-}
-
-export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
   const params = useParams();
   const navigate = useNavigate();
 
-  const [author, setAuthor] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [category, setCategory] = useState("");
+  const [form, setForm] = useState(formsInfo);
 
-  // function handleChange({ target }) {
-  //   setForm({ ...form, [target.name]: target.value });
-  // }
+  function handleChange({ target }) {
+    setForm({ ...form, [target.name]: target.value });
+  }
   async function handleSubmit(e) {
     try {
       e.preventDefault();
-      // const infosForAPI = { data: { ...form } };
-      const postData = {
-        author,
-        title,
-        content,
-        image: "",
-        category,
-        likesCounter: 0,
-      };
+      const infosForAPI = { data: { ...form } };
 
-      await api.post(`/tabs/`, { data: postData });
-
+      await api.put(`/tabs/${params.tabId}`, infosForAPI);
       setIsOpen(false);
       setIsLoading((isLoading) => {
         return !isLoading;
@@ -52,6 +32,14 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
       setReload((reload) => {
         return !reload;
       });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function handleDelete(e) {
+    try {
+      e.preventDefault();
+      await api.delete(`/tabs/${params.tabId}`);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -62,10 +50,10 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
     <>
       {isOpen && (
         <>
-          <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 h-screen">
+          <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
             <div className="bg-white px-4 py-14 rounded-md text-center">
               <h1 className="text-xl mb-4 font-bold text-slate-500">
-                Crie sua tab!
+                Tab Edit
               </h1>
               <form
                 onSubmit={handleSubmit}
@@ -81,8 +69,8 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                   <input
                     type="text"
                     id="author"
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
+                    value={form.author}
+                    onChange={handleChange}
                     name="author"
                     className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                     placeholder="Coloque seu nome"
@@ -98,8 +86,8 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                   <input
                     type="text"
                     id="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={form.title}
+                    onChange={handleChange}
                     name="title"
                     placeholder="Título do tab"
                     className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
@@ -112,8 +100,34 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                   >
                     Content:
                   </label>
+                  <textarea
+                    type="text"
+                    id="content"
+                    value={form.content}
+                    onChange={handleChange}
+                    name="content"
+                    placeholder="Escreva algo para compartilhar com a comunidade"
+                    className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                    rows="4"
+                  />
                 </div>
-                <TextEditor value={content} setValue={setContent} />
+                {/* <div className="ml-1 text-left">
+                  <label
+                    htmlFor="image"
+                    className="ml-1 text-left text-xs font-medium text-gray-700"
+                  >
+                    Image:
+                  </label>
+                  <input
+                    type="text"
+                    id="image"
+                    value={form.image}
+                    onChange={handleChange}
+                    name="image"
+                    placeholder="Link da imagem"
+                    className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                  />
+                </div> */}
                 <div className="ml-1 text-left">
                   <label
                     htmlFor="category"
@@ -123,17 +137,18 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                   </label>
 
                   <select
-                    value={category}
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="category"
                     name="category"
-                    onChange={(e) => setCategory(e.target.value)}
+                    onChange={handleChange}
                   >
-                    <option value="">Selecione uma categoria</option>
                     <option value="react">React</option>
                     <option value="javascript">JavaScript</option>
                     <option value="nextjs">NextJs</option>
                     <option value="outros">Outros</option>
+                    <option value="" selected>
+                      Selecione uma categoria
+                    </option>
                   </select>
                 </div>
                 <div className="flex items-center mt-3 mb-2 flex-col gap-2">
@@ -143,8 +158,14 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                     onClick={() => {
                       return handleSubmit;
                     }}
-                    value="Criar"
+                    value="Atualizar"
                   />
+                  <button
+                    className="w-36 cursor-pointer inline-block rounded border border-red-500 bg-red-500 px-10 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-red-500 focus:outline-none focus:ring active:text-red-400"
+                    onClick={handleDelete}
+                  >
+                    Deletar
+                  </button>
                 </div>
               </form>
 

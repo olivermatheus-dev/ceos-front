@@ -11,7 +11,7 @@ export function Navbar({ setReload, setIsLoading }) {
         aria-label="Site Header"
         className="shadow-sm fixed w-full mb bg-cyan-50 "
       >
-        <div className="mx-auto max-w-screen-xl p-4">
+        <div className="mx-auto max-w-screen-xl p-4 ">
           <div className="flex items-center justify-between gap-4 lg:gap-10">
             <div className="flex lg:w-0 lg:flex-1">
               <a href="#">
@@ -47,13 +47,14 @@ export function Navbar({ setReload, setIsLoading }) {
               >
                 Criar
               </button>
-
-              <ModalCreate
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                setReload={setReload}
-                setIsLoading={setIsLoading}
-              />
+              {isOpen && (
+                <ModalCreate
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  setReload={setReload}
+                  setIsLoading={setIsLoading}
+                />
+              )}
             </div>
 
             <div className="lg:hidden">

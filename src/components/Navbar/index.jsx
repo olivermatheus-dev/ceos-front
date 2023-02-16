@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { ModalCreate } from "../ModalCreate";
 
 export function Navbar({ setReload, setIsLoading }) {
@@ -33,9 +32,9 @@ export function Navbar({ setReload, setIsLoading }) {
               </Link>
               <Link
                 className="text-gray-500 transition-all hover:text-sky-400"
-                to="/"
+                to="/toptabs"
               >
-                Category
+                Top Tabs
               </Link>
             </nav>
 
@@ -48,6 +47,7 @@ export function Navbar({ setReload, setIsLoading }) {
               >
                 Criar
               </button>
+
               <ModalCreate
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}

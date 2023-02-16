@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { LikeButton } from "../../components/LikeButton";
 
 import { ModalUpdate } from "../../components/ModalUpdate";
 import { api } from "../../utils/api";
@@ -53,6 +54,11 @@ export function TabDetails() {
                             {tabs.createdAt}
                           </time>
                         </p>
+                        <LikeButton
+                          likesCounter={tabs.likesCounter}
+                          setTabs={setTabs}
+                          tabs={tabs}
+                        />
                       </div>
                     </div>
                   </address>

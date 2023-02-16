@@ -12,6 +12,7 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
     content: "",
     image: "",
     category: "",
+    likesCounter: 0,
   });
 
   function handleChange({ target }) {
@@ -36,7 +37,6 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
         author: "",
         title: "",
         content: "",
-        image: "",
         category: "",
       });
     } catch (err) {
@@ -109,7 +109,7 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                     rows="4"
                   />
                 </div>
-                <div className="ml-1 text-left">
+                {/* <div className="ml-1 text-left">
                   <label
                     htmlFor="image"
                     className="ml-1 text-left text-xs font-medium text-gray-700"
@@ -125,7 +125,7 @@ export function ModalCreate({ isOpen, setIsOpen, setReload, setIsLoading }) {
                     placeholder="Link da imagem"
                     className="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                   />
-                </div>
+                </div> */}
                 <div className="ml-1 text-left">
                   <label
                     htmlFor="category"

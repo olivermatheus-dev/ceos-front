@@ -1,3 +1,5 @@
+import { LikeButton } from "../LikeButton";
+
 export function TabBox({ tab }) {
   return (
     <>
@@ -49,6 +51,7 @@ export function TabBox({ tab }) {
                   {tab.author}
                 </span>
               </p>
+              <LikeButton className="hidden text-xs sm:block sm:text-xs sm:text-gray-500" />
             </div>
           </div>
         </div>

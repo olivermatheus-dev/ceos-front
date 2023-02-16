@@ -2,6 +2,7 @@ import javaScriptSvg from "../../assets/javascript/javascript.svg";
 import cssSvg from "../../assets/css/css.svg";
 import nextjsSvg from "../../assets/nextjs/nextjs.svg";
 import reactSvg from "../../assets/react/react.svg";
+import outrosSvg from "../../assets/outros/outros.svg";
 
 import { useEffect, useState } from "react";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
@@ -24,12 +25,15 @@ export function TabBox({ tab }) {
     if (tab.category === "react") {
       setImgSrc(reactSvg);
     }
+    if (tab.category === "outros") {
+      setImgSrc(outrosSvg);
+    }
   }, []);
 
   library.add(faThumbsUp);
   return (
     <>
-      <article className="rounded-xl border-2 border-gray-100 bg-white pt-5 ">
+      <article className="rounded-xl border-2 border-gray-100 bg-white pt-5 shadow-md hover:scale-105 transition duration-300 ease-in-out">
         <div className="flex items-start p-6">
           <div className="block shrink-0">
             <img

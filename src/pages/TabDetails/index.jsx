@@ -2,6 +2,7 @@ import javaScriptJpg from "../../assets/javascript/javascript.jpg";
 // import cssJpg from "../../assets/css/css.jpg";
 import nextjsJpg from "../../assets/nextjs/nextjs.jpg";
 import reactJpg from "../../assets/react/react.jpg";
+import outrosPng from "../../assets/outros/outros.png";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -34,6 +35,9 @@ export function TabDetails() {
         }
         if (category === "react") {
           setImgSrc(reactJpg);
+        }
+        if (category === "outros") {
+          setImgSrc(outrosPng);
         }
       } catch (err) {
         console.log(err);

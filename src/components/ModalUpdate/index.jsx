@@ -73,8 +73,8 @@ export function ModalUpdate({
     <>
       {isOpen && (
         <>
-          <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 h-screen">
-            <div className="bg-white px-4 py-14 rounded-md text-center">
+          <div className="fixed bg-slate-800 bg-opacity-50 flex justify-center items-center  top-0 right-0 bottom-0 left-0 h-screen">
+            <div className="bg-white px-4 py-14 rounded-md text-center fixed">
               <h1 className="text-xl mb-4 font-bold text-slate-500">
                 Edite as informações!
               </h1>

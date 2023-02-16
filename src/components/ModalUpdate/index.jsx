@@ -28,7 +28,7 @@ export function ModalUpdate({
   const params = useParams();
   const navigate = useNavigate();
   const [author, setAuthor] = useState(formsInfo.author);
-  const [title, setTitle] = useState(formsInfo.author);
+  const [title, setTitle] = useState(formsInfo.title);
   const [content, setContent] = useState(formsInfo.content);
   const [category, setCategory] = useState(formsInfo.category);
 

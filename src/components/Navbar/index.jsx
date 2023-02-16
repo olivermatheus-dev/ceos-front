@@ -9,20 +9,28 @@ export function Navbar({ setReload, setIsLoading }) {
     <>
       <header
         aria-label="Site Header"
-        className="shadow-sm fixed w-full mb bg-cyan-50 "
+        className="shadow-sm fixed w-full  bg-cyan-50 "
       >
         <div className="mx-auto max-w-screen-xl p-4 ">
           <div className="flex items-center justify-between gap-4 lg:gap-10">
-            <div className="flex lg:w-0 lg:flex-1">
-              <a href="#">
-                <span className="sr-only">Logo</span>
-                <span className="h-10 w-20 rounded-lg bg-gray-200"></span>
-              </a>
+            <div className="flex ">
+              <p>
+                <span className="sr-only"></span>
+
+                <Link
+                  className="text-sky-400 relative font-medium before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-sky-400 before:transition hover:before:scale-100"
+                  to="/"
+                >
+                  <span className="ml-3 relative h-10 w-20 font-bold text-gray-700 ">
+                    Ceos
+                  </span>
+                </Link>
+              </p>
             </div>
 
             <nav
               aria-label="Site Nav"
-              className="hidden gap-8 text-sm font-medium md:flex"
+              className=" gap-8 text-sm font-medium md:flex"
             >
               <Link
                 className="text-sky-400 relative font-medium before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-sky-400 before:transition hover:before:scale-100"
@@ -30,15 +38,9 @@ export function Navbar({ setReload, setIsLoading }) {
               >
                 Home
               </Link>
-              <Link
-                className="text-gray-500 transition-all hover:text-sky-400"
-                to="/toptabs"
-              >
-                Top Tabs
-              </Link>
             </nav>
 
-            <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
+            <div className="pt- justify-end sm:flex">
               <button
                 onClick={() => {
                   setIsOpen(!isOpen);
@@ -57,7 +59,7 @@ export function Navbar({ setReload, setIsLoading }) {
               )}
             </div>
 
-            <div className="lg:hidden">
+            {/* <div className="lg:hidden">
               <button
                 className="rounded-lg bg-gray-100 p-2 text-gray-600"
                 type="button"
@@ -79,7 +81,7 @@ export function Navbar({ setReload, setIsLoading }) {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>

@@ -1,6 +1,8 @@
-import { LikeButton } from "../LikeButton";
-
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export function TabBox({ tab }) {
+  library.add(faThumbsUp);
   return (
     <>
       <article className="rounded-xl border-2 border-gray-100 bg-white pt-5 ">
@@ -18,11 +20,19 @@ export function TabBox({ tab }) {
               {tab.title}
             </h3>
 
-            <p className="text-sm text-gray-700 line-clamp-2 w-56 sm:w-128">
-              {tab.content}
-            </p>
+            <p
+              className="text-sm text-gray-700 line-clamp-2 w-56 sm:w-128"
+              dangerouslySetInnerHTML={{ __html: tab.content }}
+            ></p>
 
             <div className="mt-2 sm:flex sm:items-center sm:gap-2">
+              <div className="flex items-center text-gray-500">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-thumbs-up"
+                  className={`fas fa-thumbs-up text-sm text-gray-500`}
+                />
+                <p className="ml-1 text-xs">{tab.likesCounter} likes</p>
+              </div>
               <div className="flex items-center text-gray-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +61,6 @@ export function TabBox({ tab }) {
                   {tab.author}
                 </span>
               </p>
-              <LikeButton className="hidden text-xs sm:block sm:text-xs sm:text-gray-500" />
             </div>
           </div>
         </div>

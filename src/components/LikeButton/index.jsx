@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { api } from "../../utils/api";
 import { useParams } from "react-router-dom";
 
 library.add(faHeart);
+library.add(faThumbsUp);
 
 export function LikeButton({ likesCounter, setTabs, tabs }) {
   const params = useParams();
@@ -34,9 +36,9 @@ export function LikeButton({ likesCounter, setTabs, tabs }) {
           }}
         >
           <FontAwesomeIcon
-            icon="heart"
-            className={`fas fa-heart ${
-              hasLiked ? "text-red-500" : "text-gray-400"
+            icon="fa-solid fa-thumbs-up"
+            className={`fas fa-thumbs-up text-xl ${
+              hasLiked ? "text-sky-500" : "text-gray-400"
             }`}
           />
         </i>

@@ -156,9 +156,14 @@ export function ModalUpdate({
                     }}
                     value="Atualizar"
                   />
+                  <button
+                    className="w-36 cursor-pointer inline-block rounded border border-red-500 bg-red-500 px-10 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-red-500 focus:outline-none focus:ring active:text-red-400"
+                    onClick={handleDelete}
+                  >
+                    Deletar
+                  </button>
                 </div>
               </form>
-
               <button
                 className="bg-indigo-400 px-4 py-2 rounded-md text-md text-white"
                 onClick={() => {
